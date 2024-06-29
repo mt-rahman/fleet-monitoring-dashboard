@@ -23291,6 +23291,9 @@ hr.horizontal.gray-light {
 
 .sidenav-header {
   height: 4.875rem;
+  display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sidenav-footer .card.card-background:after {

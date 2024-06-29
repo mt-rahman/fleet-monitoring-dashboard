@@ -9,6 +9,7 @@ update_status_cards();
 // function to update status cards
 async function update_status_cards() {
   //fetch api
+  // TODO: MOVE API TO .ENV
   let url = "https://d7jzoht5xl.execute-api.ap-southeast-1.amazonaws.com/doubleSDT/real-time/get_count";
   const response = await fetch(url);
   var data = await response.json();
@@ -68,8 +69,9 @@ async function update_marker(map, marker, initial) {
   // get user choice
   let sel = document.getElementById("unit_id");
   let primemover_id = String(sel.value);
+  // TODO: MOVE API TO .ENV
   let url = "https://d7jzoht5xl.execute-api.ap-southeast-1.amazonaws.com/doubleSDT/real-time/get-location?primemover_id=" + primemover_id;
-  
+
   // fetch coordinates
   const response = await fetch(url);
   var data = await response.json();
@@ -78,7 +80,7 @@ async function update_marker(map, marker, initial) {
   marker.setLatLng([data.latitude, data.longitude])
   let text= sel.options[sel.selectedIndex].text;
   let popup_text = "<h5>" + text +"</h5>" +
-                  "Timestamp: " + String(data.datetime) + "," + 
+                  "Timestamp: " + String(data.datetime) + "," +
                   "<br>Speed: " + parseFloat(String(data.speed)).toFixed(2) + " km/h," +
                   "<br>Location Status: " + String(data.location_status) + "," +
                   "<br>Payload Status: " + String(data.payload_status);

@@ -208,6 +208,7 @@ async function initialize_graphs(primemover_id, cycle_time_analysis_primemover_i
 
   // fetch latest 7 available dates for daily summary graphs
   let unit_id = String(primemover_id);
+  // TODO: MOVE API TO .ENV
   let url = "https://d7jzoht5xl.execute-api.ap-southeast-1.amazonaws.com/doubleSDT/productivity/get-dates?primemover_id=" + unit_id;
   const response = await fetch(url);
   var data = await response.json();
@@ -221,6 +222,7 @@ async function initialize_graphs(primemover_id, cycle_time_analysis_primemover_i
 
   // fetch latest available data for cycle time analysis graphs
   let cycle_time_analysis_unit_id = String(cycle_time_analysis_primemover_id);
+  // TODO: MOVE API TO .ENV
   let url2 = "https://d7jzoht5xl.execute-api.ap-southeast-1.amazonaws.com/doubleSDT/productivity/get-dates?primemover_id=" + cycle_time_analysis_unit_id;
   const response2 = await fetch(url2);
   var data2 = await response2.json();
@@ -254,6 +256,7 @@ function update_daily_summary(primemover_id, date_from, date_to) {
 // function to update no of cycles graph
 async function update_no_of_cycles(primemover_id, date_from, date_to) {
   // fetch no of cycles data
+  // TODO: MOVE API TO .ENV
   let url = "https://d7jzoht5xl.execute-api.ap-southeast-1.amazonaws.com/doubleSDT/productivity/get-cyclecount?" +
             "primemover_id=" + String(primemover_id) +
             "&start_date=" + String(date_from) +
@@ -325,6 +328,7 @@ async function update_no_of_cycles(primemover_id, date_from, date_to) {
 // function to update avg cycle time graph
 async function update_avg_cycle_time(primemover_id, date_from, date_to) {
   // fetch no of cycles data
+  // TODO: MOVE API TO .ENV
   let url = "https://d7jzoht5xl.execute-api.ap-southeast-1.amazonaws.com/doubleSDT/productivity/get-cycletimes?" +
             "primemover_id=" + String(primemover_id) +
             "&start_date=" + String(date_from) +
@@ -413,6 +417,7 @@ function update_cycle_time_analysis(primemover_id, date, sub_activity) {
 // function to update cycle time breakdown graph
 async function update_cycle_time_breakdown(primemover_id, date) {
   // fetch no of cycles data
+  // TODO: MOVE API TO .ENV
   let url = "https://d7jzoht5xl.execute-api.ap-southeast-1.amazonaws.com/doubleSDT/productivity/get-breakdown?" +
             "primemover_id=" + String(primemover_id) +
             "&date=" + String(date);
@@ -489,6 +494,7 @@ async function update_cycle_time_breakdown(primemover_id, date) {
 // function to update sub activity graph
 async function update_sub_activity(primemover_id, date, sub_activity) {
   // fetch no of cycles data
+  // TODO: MOVE API TO .ENV
   let url = "https://d7jzoht5xl.execute-api.ap-southeast-1.amazonaws.com/doubleSDT/productivity/get-subactivity?" +
             "primemover_id=" + String(primemover_id) +
             "&date=" + String(date) +

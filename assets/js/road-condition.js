@@ -39,11 +39,13 @@ function change_direction() {
 // function to plot sections
 async function plot_sections(map) {
   // fetch coordinates
+  // TODO: MOVE API TO .ENV
   let url = "https://d7jzoht5xl.execute-api.ap-southeast-1.amazonaws.com/doubleSDT/road-condition/get-coordinates";
   const response = await fetch(url);
   var sections_coordinates = await response.json();
 
   // fetch sections data
+  // TODO: MOVE API TO .ENV
   let url2 = "https://d7jzoht5xl.execute-api.ap-southeast-1.amazonaws.com/doubleSDT/road-condition/get-sections";
   const response2 = await fetch(url2);
   var sections_data = await response2.json();
@@ -74,13 +76,13 @@ async function plot_sections(map) {
       var direction = "To Port";
     }
 
-    let popup = "<h5>KM" + String(kilometer) + "-" + String(meter) + "</h5>" + 
-                "Section: " + String(section) + 
-                "<br>Direction: " + String(direction) + 
-                "<br>Time: " + start_time + " - " + finish_time + 
-                "<br>Vibration Intensity: " + az.toFixed(3) + " grms" + 
-                "<br>Average Inclination: " + pitch.toFixed(3) + " degrees" + 
-                "<br>Average Body Roll: " + roll.toFixed(3) + " degrees" + 
+    let popup = "<h5>KM" + String(kilometer) + "-" + String(meter) + "</h5>" +
+                "Section: " + String(section) +
+                "<br>Direction: " + String(direction) +
+                "<br>Time: " + start_time + " - " + finish_time +
+                "<br>Vibration Intensity: " + az.toFixed(3) + " grms" +
+                "<br>Average Inclination: " + pitch.toFixed(3) + " degrees" +
+                "<br>Average Body Roll: " + roll.toFixed(3) + " degrees" +
                 "<br>Average Speed: " + speed.toFixed(3) + " km/h";
     poly.bindPopup(popup);
   }

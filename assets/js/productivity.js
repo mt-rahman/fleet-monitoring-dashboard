@@ -208,8 +208,7 @@ async function initialize_graphs(primemover_id, cycle_time_analysis_primemover_i
 
   // fetch latest 7 available dates for daily summary graphs
   let unit_id = String(primemover_id);
-  // TODO: MOVE API TO .ENV
-  let url = "https://d7jzoht5xl.execute-api.ap-southeast-1.amazonaws.com/doubleSDT/productivity/get-dates?primemover_id=" + unit_id;
+  let url = `http://localhost:3000/api/get-dates?primemover_id=${unit_id}`;
   const response = await fetch(url);
   var data = await response.json();
   var last_seven_dates = data.date.slice(-7);
@@ -222,8 +221,7 @@ async function initialize_graphs(primemover_id, cycle_time_analysis_primemover_i
 
   // fetch latest available data for cycle time analysis graphs
   let cycle_time_analysis_unit_id = String(cycle_time_analysis_primemover_id);
-  // TODO: MOVE API TO .ENV
-  let url2 = "https://d7jzoht5xl.execute-api.ap-southeast-1.amazonaws.com/doubleSDT/productivity/get-dates?primemover_id=" + cycle_time_analysis_unit_id;
+  let url2 = `http://localhost:3000/api/get-dates?primemover_id=${cycle_time_analysis_unit_id}`;
   const response2 = await fetch(url2);
   var data2 = await response2.json();
   var cycle_time_analysis_date = data2.date[data2.date.length-1];
@@ -256,11 +254,10 @@ function update_daily_summary(primemover_id, date_from, date_to) {
 // function to update no of cycles graph
 async function update_no_of_cycles(primemover_id, date_from, date_to) {
   // fetch no of cycles data
-  // TODO: MOVE API TO .ENV
-  let url = "https://d7jzoht5xl.execute-api.ap-southeast-1.amazonaws.com/doubleSDT/productivity/get-cyclecount?" +
-            "primemover_id=" + String(primemover_id) +
-            "&start_date=" + String(date_from) +
-            "&end_date=" + String(date_to);
+  let url = "http://localhost:3000/api/get-cyclecount?" +
+            `primemover_id=${primemover_id}` +
+            `&start_date=${date_from}` +
+            `&end_date=${date_to}`;
   const response = await fetch(url);
   var data = await response.json();
 
@@ -328,11 +325,10 @@ async function update_no_of_cycles(primemover_id, date_from, date_to) {
 // function to update avg cycle time graph
 async function update_avg_cycle_time(primemover_id, date_from, date_to) {
   // fetch no of cycles data
-  // TODO: MOVE API TO .ENV
-  let url = "https://d7jzoht5xl.execute-api.ap-southeast-1.amazonaws.com/doubleSDT/productivity/get-cycletimes?" +
-            "primemover_id=" + String(primemover_id) +
-            "&start_date=" + String(date_from) +
-            "&end_date=" + String(date_to);
+  let url = "http://localhost:3000/api/get-cycletimes?" +
+            `primemover_id=${primemover_id}` +
+            `&start_date=${date_from}` +
+            `&end_date=${date_to}`;
   const response = await fetch(url);
   var data = await response.json();
 
@@ -417,10 +413,9 @@ function update_cycle_time_analysis(primemover_id, date, sub_activity) {
 // function to update cycle time breakdown graph
 async function update_cycle_time_breakdown(primemover_id, date) {
   // fetch no of cycles data
-  // TODO: MOVE API TO .ENV
-  let url = "https://d7jzoht5xl.execute-api.ap-southeast-1.amazonaws.com/doubleSDT/productivity/get-breakdown?" +
-            "primemover_id=" + String(primemover_id) +
-            "&date=" + String(date);
+  let url = "http://localhost:3000/api/get-breakdown?" +
+            `primemover_id=${primemover_id}` +
+            `&date=${date}`;
   const response = await fetch(url);
   var data = await response.json();
 
@@ -494,11 +489,10 @@ async function update_cycle_time_breakdown(primemover_id, date) {
 // function to update sub activity graph
 async function update_sub_activity(primemover_id, date, sub_activity) {
   // fetch no of cycles data
-  // TODO: MOVE API TO .ENV
-  let url = "https://d7jzoht5xl.execute-api.ap-southeast-1.amazonaws.com/doubleSDT/productivity/get-subactivity?" +
-            "primemover_id=" + String(primemover_id) +
-            "&date=" + String(date) +
-            "&sub_activity=" + String(sub_activity);
+  let url = "http://localhost:3000/api/get-subactivity?" +
+            `primemover_id=${primemover_id}` +
+            `&date=${date}` +
+            `&sub_activity=${sub_activity}`;
   const response = await fetch(url);
   var data = await response.json();
 

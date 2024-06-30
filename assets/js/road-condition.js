@@ -40,13 +40,13 @@ function change_direction() {
 async function plot_sections(map) {
   // fetch coordinates
   // TODO: MOVE API TO .ENV
-  let url = "https://d7jzoht5xl.execute-api.ap-southeast-1.amazonaws.com/doubleSDT/road-condition/get-coordinates";
+  let url = 'http://localhost:3000/api/get-coordinates';
   const response = await fetch(url);
   var sections_coordinates = await response.json();
 
   // fetch sections data
   // TODO: MOVE API TO .ENV
-  let url2 = "https://d7jzoht5xl.execute-api.ap-southeast-1.amazonaws.com/doubleSDT/road-condition/get-sections";
+  let url2 = 'http://localhost:3000/api/get-sections';
   const response2 = await fetch(url2);
   var sections_data = await response2.json();
 

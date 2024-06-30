@@ -1,9 +1,10 @@
-var gulp = require('gulp');
-var path = require('path');
-var sass = require('gulp-sass')(require('sass'));
-var autoprefixer = require('gulp-autoprefixer');
-var sourcemaps = require('gulp-sourcemaps');
-var open = require('gulp-open');
+import gulp from 'gulp'
+import path from 'path'
+import sass from 'gulp-sass'
+import autoprefixer from 'gulp-autoprefixer'
+import sourcemaps from 'gulp-sourcemaps'
+import open from 'gulp-open'
+
 
 var Paths = {
   HERE: './',

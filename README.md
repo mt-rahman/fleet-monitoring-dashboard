@@ -4,4 +4,4 @@
 Prototype dashboard for fleet monitoring.
 
 ## Demo
-[Watch demo video here!](Demo.webm)
+<video controls src="Demo.mp4" title="Demo"></video>

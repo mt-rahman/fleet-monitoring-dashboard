@@ -53,7 +53,7 @@ https://github.com/mt-rahman/fleet-monitoring-dashboard/assets/142861567/13c89d8
 
 * Bootstrap
 * Express.js
-* fleet-monitoring-dashboard
+* Plotly
 * Leaflet
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
